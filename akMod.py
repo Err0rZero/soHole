@@ -3,6 +3,7 @@
 
 import pycurl
 import log
+import time
 
 from StringIO import StringIO
 from echo import echo
@@ -149,7 +150,7 @@ class cAttack():
                 for ak in ak_List:
                         print echo.fail("#Attack Get    -------->     ") + echo.high(ak)
                         try:
-                                self.setCurlSetOpt("post",ak)
+                                self.setCurlSetOpt("get",ak)
                                 self.curl.perform()
                                 if self.curl.getinfo(self.curl.HTTP_CODE) == 200:
                                         html = self.sio.getvalue()
@@ -178,10 +179,11 @@ class cAttack():
                 return True
 
         def retInfo(self,v,retak):
+        	seavfile = time.strftime("%d%m%Y")
                 if len(retak) != 0:
                         print echo.fail(v + " Vulnerability connection :  " + str(len(retak)) + "\r\n")
                         for ra in retak:
-                                log.writeLog(self.ackMod + "  " + self.testWeb + v + "  " + ra)
+                                log.writeLog(str(seavfile),self.ackMod + "  " + self.testWeb + v + "  " + ra)
                                 print echo.high(ra) 
                                 print "log save ok. path : " + log.getLogFile() + "/" + self.testWeb + ".log\r\n"
                 raw_input("Press Enter to continue: ")
