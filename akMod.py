@@ -123,7 +123,7 @@ class cAttack():
                         except pycurl.error , e:
                                 if e[0] == 56:
                                         print e[1]
-                                        raw_input("Press Enter to continue: ")
+                                        #raw_input("Press Enter to continue: ")
                                         break;
                         except:
                                 continue;
@@ -169,7 +169,7 @@ class cAttack():
                         except pycurl.error , e:
                                 if e[0] == 56:
                                         print e[1]
-                                        raw_input("Press Enter to continue: ")
+                                        #raw_input("Press Enter to continue: ")
                                         break;
                         except:
                                 continue;
@@ -187,7 +187,7 @@ class cAttack():
                                 log.writeLog(str(seavfile),self.ackMod + "  " + self.testWeb + v + "  " + ra)
                                 print echo.high(ra) 
                                 print "log save ok. path : " + log.getLogFile() + "/" + self.testWeb + ".log\r\n"
-                raw_input("Press Enter to continue: ")
+                raw_input("Log Save Ok .. Press Enter to continue: ")
     			
 if __name__ == "__main__":
         pass
