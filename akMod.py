@@ -187,7 +187,7 @@ class cAttack():
                                 log.writeLog(str(seavfile),self.ackMod + "  " + self.testWeb + v + "  " + ra)
                                 print echo.high(ra) 
                                 print "log save ok. path : " + log.getLogFile() + "/" + self.testWeb + ".log\r\n"
-                raw_input("Log Save Ok .. Press Enter to continue: ")
+                raw_input(echo.high("Log Save Ok .. Press Enter to continue: "))
     			
 if __name__ == "__main__":
         pass
