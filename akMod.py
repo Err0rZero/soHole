@@ -59,6 +59,7 @@ class cAttack():
         def setCurlSetOpt(self,v,ak,rouData = {}):
                 self.curl.setopt(pycurl.USERAGENT, self.header["user-agent"])
                 self.curl.setopt(pycurl.COOKIEFILE, self.header["cookie"])
+                self.curl.setopt(pycurl.REFERER,self.header["path"])
                 self.curl.setopt(pycurl.WRITEFUNCTION, self.sio.write)
                 if v == "post" and self.ackMod != "csrf":
                         self.curl.setopt(pycurl.URL, self.header["path"]) 	
@@ -67,9 +68,9 @@ class cAttack():
                         self.curl.setopt(pycurl.URL, ak)
                 if self.ackMod == "csrf":
                         self.curl.setopt(pycurl.URL,self.header["path"])
+                        self.curl.setopt(pycurl.REFERER,ak)
                         if v == "post":
                                 self.curl.setopt(pycurl.POSTFIELDS,rouData["fields"])
-                self.curl.setopt(pycurl.REFERER,ak)
                 self.curl.setopt(pycurl.VERBOSE, True)
                 self.curl.setopt(pycurl.FOLLOWLOCATION, 1)
                 self.curl.setopt(pycurl.MAXREDIRS, 5)
